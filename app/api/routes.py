@@ -25,7 +25,7 @@ class EmailAddResponse(BaseModel):
     message: str
     email_id: int
 
-@router.post("/emails/classify", response_model=EmailClassificationResponse)
+@router.post("/emails/magicify", response_model=EmailClassificationResponse)
 async def classify_email(request: EmailRequest):
     try:
         inference_service = EmailTopicInferenceService()
