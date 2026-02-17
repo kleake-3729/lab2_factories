@@ -19,5 +19,8 @@
     },
     "social": {
         "description": "LinkedIn Notifications"
+    },
+    "junk mail": {
+        "description": "mail that offers ads and stuff unwanted"
     }
 }
