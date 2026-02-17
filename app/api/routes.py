@@ -3,12 +3,19 @@ from pydantic import BaseModel
 from typing import Dict, Any, List
 from app.services.email_topic_inference import EmailTopicInferenceService
 from app.dataclasses import Email
+from app.services import add_json
 
 router = APIRouter()
+
+file_path = '/home/ec2-user/environment/kl_lab2/lab2_factories/data/topic_keywords.json'
 
 class EmailRequest(BaseModel):
     subject: str
     body: str
+    
+class NewTopic(BaseModel):
+    topic: str
+    description: str
 
 class EmailWithTopicRequest(BaseModel):
     subject: str
@@ -38,6 +45,19 @@ async def classify_email(request: EmailRequest):
             features=result["features"],
             available_topics=result["available_topics"]
         )
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+        
+@router.post("/emails/newtopic")
+
+async def new_topic_to_json(request: NewTopic):
+    try:
+        inference_service = EmailTopicInferenceService()
+        info = inference_service.get_pipeline_info()
+        add_json.new_topic_to_json(file_path, request.topic, request.description)
+        
+        return {"topics": info["available_topics"]}
+        
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 

@@ -1,18 +1,23 @@
-[
-    {
-        "topic": "stress",
-        "description": "this class is very stressfull"
+{
+    "work": {
+        "description": "Work-related emails including meetings, deadlines, and business communications"
     },
-    {
-        "topic": "stress",
-        "description": "the feeling that you have in class"
+    "personal": {
+        "description": "Personal communications from friends, family, and personal accounts"
     },
-    {
-        "topic": "\"stress\"",
-        "description": "\"the feeling you get from this class\""
+    "promotion": {
+        "description": "Sales, discounts, special offers, and marketing emails"
     },
-    {
-        "topic": "stress",
-        "description": "how i am feeling right now"
+    "newsletter": {
+        "description": "Regular updates, subscriptions, and periodic communications"
+    },
+    "support": {
+        "description": "Customer support, help requests, and technical issues"
+    },
+    "stress": {
+        "description": "this class stresses me out"
+    },
+    "test": {
+        "description": "testing if this still works"
     }
-]
+}
