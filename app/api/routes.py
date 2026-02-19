@@ -4,11 +4,14 @@ from typing import Dict, Any, List
 from app.services.email_topic_inference import EmailTopicInferenceService
 from app.dataclasses import Email
 from app.services import add_json
+from app.services import save_emails
 import os
 
 router = APIRouter()
 
 #file_path = '/home/ec2-user/environment/kl_lab2/lab2_factories/data/topic_keywords.json'
+
+email_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'data', 'emails.json')
 
 file_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'data', 'topic_keywords.json')
 
@@ -48,6 +51,18 @@ async def classify_email(request: EmailRequest):
             features=result["features"],
             available_topics=result["available_topics"]
         )
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+        
+@router.post("/emails")
+
+async def save_email(request: EmailWithTopicRequest):
+    try:
+        save_emails.save_email(email_path, request.topic, request.subject, request.body)
+        
+        return "Success! You have saved your new email!"
+        
+        
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
         

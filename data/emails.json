@@ -1,1 +1,24 @@
-[]
+{
+    "saved_emails": [
+        {
+            "topic": "new",
+            "subject": "testing if this still works!",
+            "body": "i really hope that this works!"
+        },
+        {
+            "topic": "new",
+            "subject": "testing if this still works!",
+            "body": "i really hope that this works!"
+        },
+        {
+            "topic": "school",
+            "subject": "please let this work",
+            "body": "I need this assignment to work for class"
+        },
+        {
+            "topic": "school",
+            "subject": "another test",
+            "body": "this is another test for the api"
+        }
+    ]
+}

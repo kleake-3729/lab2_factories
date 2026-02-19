@@ -43,5 +43,8 @@
     },
     "this should work": {
         "description": "hoping that this works!"
+    },
+    "new topic": {
+        "description": "this is a new topic to test"
     }
 }
