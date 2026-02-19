@@ -4,10 +4,13 @@ from typing import Dict, Any, List
 from app.services.email_topic_inference import EmailTopicInferenceService
 from app.dataclasses import Email
 from app.services import add_json
+import os
 
 router = APIRouter()
 
-file_path = '/home/ec2-user/environment/kl_lab2/lab2_factories/data/topic_keywords.json'
+#file_path = '/home/ec2-user/environment/kl_lab2/lab2_factories/data/topic_keywords.json'
+
+file_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'data', 'topic_keywords.json')
 
 class EmailRequest(BaseModel):
     subject: str
@@ -48,7 +51,7 @@ async def classify_email(request: EmailRequest):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
         
-@router.post("/emails/newtopic")
+@router.post("/topics")
 
 async def new_topic_to_json(request: NewTopic):
     try:
@@ -56,7 +59,8 @@ async def new_topic_to_json(request: NewTopic):
         info = inference_service.get_pipeline_info()
         add_json.new_topic_to_json(file_path, request.topic, request.description)
         
-        return {"topics": info["available_topics"]}
+        return "Success! Please check the GET topics endpoint to see your new topic!"
+        
         
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

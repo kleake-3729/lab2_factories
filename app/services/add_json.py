@@ -1,7 +1,8 @@
 import json
+import os
 from pathlib import Path
 
-file_path = '/home/ec2-user/environment/kl_lab2/lab2_factories/data/test_topic.json'
+file_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'data', 'topic_keywords.json')
 
 def new_topic_to_json(file_path, new_topic, desc):
     #Reading in existing json or creating a new object if unable to read file
@@ -29,8 +30,8 @@ def new_topic_to_json(file_path, new_topic, desc):
     else:
         print(f"Key '{new_topic}' already exists. No changes made.")
 
-if __name__ == "__main__":
-    new_topic_to_json(file_path, 'test', 'testing if this still works')
+#if __name__ == "__main__":
+    #new_topic_to_json(file_path, 'test', 'testing if this still works')
 
 
     
