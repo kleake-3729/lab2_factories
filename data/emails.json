@@ -1,24 +1,24 @@
 {
     "saved_emails": [
         {
-            "topic": "new",
-            "subject": "testing if this still works!",
-            "body": "i really hope that this works!"
-        },
-        {
-            "topic": "new",
-            "subject": "testing if this still works!",
-            "body": "i really hope that this works!"
-        },
-        {
             "topic": "school",
-            "subject": "please let this work",
-            "body": "I need this assignment to work for class"
+            "subject": "help on assignment 1",
+            "body": "Hi professor, I would like help with assignment 1. Thanks!"
         },
         {
-            "topic": "school",
-            "subject": "another test",
-            "body": "this is another test for the api"
+            "topic": "junk",
+            "subject": "please give me money",
+            "body": "Hello I am a prince and need money."
+        },
+        {
+            "topic": "social",
+            "subject": "Facebook update",
+            "body": "You have a new facebook update"
+        },
+        {
+            "topic": "sports",
+            "subject": "curling is cool",
+            "body": "the us womens team is doing awesome at curling right now"
         }
     ]
 }

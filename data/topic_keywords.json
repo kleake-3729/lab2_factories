@@ -15,36 +15,15 @@
         "description": "Customer support, help requests, and technical issues"
     },
     "school": {
-        "description": "emails from your professor with stressful assignments attached"
+        "description": "Assignments, tests, and reports"
     },
     "social": {
-        "description": "LinkedIn Notifications"
+        "description": "Facebook, LinkendIn, and Instagram upates"
     },
-    "junk mail": {
-        "description": "mail that offers ads and stuff unwanted"
-    },
-    "bad weather": {
-        "description": "the weather outside"
+    "junk": {
+        "description": "Sketchy emails with princes asking for money"
     },
     "sports": {
-        "description": "emails involving sports lingo or talk"
-    },
-    "fan mail": {
-        "description": "emails from fans"
-    },
-    "assignments": {
-        "description": "emails with tasks and work to do"
-    },
-    "olympics": {
-        "description": "emails about the olympic games"
-    },
-    "am i good": {
-        "description": "if this works i am a genius"
-    },
-    "this should work": {
-        "description": "hoping that this works!"
-    },
-    "new topic": {
-        "description": "this is a new topic to test"
+        "description": "Hockey, basket ball, and curling updates or information"
     }
 }
