@@ -58,16 +58,33 @@ async def classify_email(request: EmailRequest):
 @router.post("/emails/test", response_model=EmailClassificationResponse)
 async def new_classify_email(request: EmailRequest):
     try:
-        inference_service = NewEmailTopicInferenceService()
+        new_inference_service = NewEmailTopicInferenceService()
+        inference_service = EmailTopicInferenceService()
         email = Email(subject=request.subject, body=request.body)
-        result = inference_service.classify_email(email)
+        new_result = new_inference_service.classify_email(email)
+        old_result = inference_service.classify_email(email)
+        max_new = max(new_result["topic_scores"].items(), key=lambda item: item[1])
+        max_old = max(old_result["topic_scores"].items(), key=lambda item: item[1])
         
-        return EmailClassificationResponse(
-            predicted_topic=result["predicted_topic"],
-            topic_scores=result["topic_scores"],
-            features=result["features"],
-            available_topics=result["available_topics"]
-        )
+        if max_new[1] > max_old[1]: 
+        
+        
+            return EmailClassificationResponse(
+                predicted_topic=new_result["predicted_topic"],
+                topic_scores=new_result["topic_scores"],
+                features=new_result["features"],
+                available_topics=new_result["available_topics"]
+                
+                )
+        else: 
+            return EmailClassificationResponse(
+                predicted_topic=old_result["predicted_topic"],
+                topic_scores=old_result["topic_scores"],
+                features=old_result["features"],
+                available_topics=old_result["available_topics"]
+                
+                )
+        
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
         
