@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 from typing import Dict, Any, List
 from app.services.email_topic_inference import EmailTopicInferenceService
-from app.services.models_test import NewEmailTopicInferenceService
+from app.services.new_email_topics import NewEmailTopicInferenceService
 from app.dataclasses import Email
 from app.services import add_json
 from app.services import save_emails
@@ -10,7 +10,6 @@ import os
 
 router = APIRouter()
 
-#file_path = '/home/ec2-user/environment/kl_lab2/lab2_factories/data/topic_keywords.json'
 
 email_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'data', 'emails.json')
 
@@ -40,22 +39,6 @@ class EmailAddResponse(BaseModel):
     email_id: int
 
 @router.post("/emails/classify", response_model=EmailClassificationResponse)
-async def classify_email(request: EmailRequest):
-    try:
-        inference_service = EmailTopicInferenceService()
-        email = Email(subject=request.subject, body=request.body)
-        result = inference_service.classify_email(email)
-        
-        return EmailClassificationResponse(
-            predicted_topic=result["predicted_topic"],
-            topic_scores=result["topic_scores"],
-            features=result["features"],
-            available_topics=result["available_topics"]
-        )
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-        
-@router.post("/emails/test", response_model=EmailClassificationResponse)
 async def new_classify_email(request: EmailRequest):
     try:
         new_inference_service = NewEmailTopicInferenceService()

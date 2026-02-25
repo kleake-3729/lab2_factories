@@ -19,6 +19,16 @@
             "topic": "sports",
             "subject": "curling is cool",
             "body": "the us womens team is doing awesome at curling right now"
+        },
+        {
+            "topic": "trivia",
+            "subject": "going to trivia tonight",
+            "body": "Are you going to trivia tonight? I know there will be lots of questions about ABBA"
+        },
+        {
+            "topic": "trivia",
+            "subject": "trivia questions",
+            "body": "do you think horse types will be a category for trivia"
         }
     ]
 }

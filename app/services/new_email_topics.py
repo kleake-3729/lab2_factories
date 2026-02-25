@@ -1,5 +1,5 @@
 from typing import Dict, Any
-from app.models.email_embed import EmailClassifierModel
+from app.models.new_email_model import EmailClassifierModel
 from app.features.factory import FeatureGeneratorFactory
 from app.dataclasses import Email
 

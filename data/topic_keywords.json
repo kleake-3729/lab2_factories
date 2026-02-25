@@ -25,5 +25,11 @@
     },
     "sports": {
         "description": "Hockey, basket ball, and curling updates or information"
+    },
+    "Taylor Swift": {
+        "description": "Relating to Taylor Swift the person, her songs, or articles about her"
+    },
+    "Olympics": {
+        "description": "Talk of the olympic games or scores/medal count"
     }
 }
