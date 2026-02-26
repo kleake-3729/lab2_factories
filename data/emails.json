@@ -29,6 +29,11 @@
             "topic": "trivia",
             "subject": "trivia questions",
             "body": "do you think horse types will be a category for trivia"
+        },
+        {
+            "topic": "Taylor Swift",
+            "subject": "my favorite artist",
+            "body": "i think my favorite artist is taylor swift!"
         }
     ]
 }
